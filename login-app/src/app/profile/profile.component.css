@@ -1,0 +1,159 @@
+.profile-page h1 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.profile-section,
+.orders-section {
+  margin-bottom: 2.5rem;
+}
+
+.profile-section h2,
+.orders-section h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.profile-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 480px;
+}
+
+.profile-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.profile-row:last-child {
+  border-bottom: none;
+}
+
+.profile-row .label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.profile-row .value {
+  font-weight: 500;
+  color: #fff;
+}
+
+.orders-subtitle {
+  margin: 0 0 1rem 0;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.empty-orders {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.empty-orders p {
+  margin: 0 0 1rem 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-shop {
+  display: inline-block;
+  padding: 0.6rem 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.btn-shop:hover {
+  opacity: 0.95;
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.order-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.order-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.order-id {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #4f9cf9;
+}
+
+.order-date {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.order-total {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #86efac;
+}
+
+.order-details {
+  margin-bottom: 0.75rem;
+}
+
+.order-details p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.order-items {
+  margin: 0;
+  padding: 0.75rem 0 0 0;
+  list-style: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.order-items li {
+  padding: 0.35rem 0;
+}
+
+.loading,
+.error {
+  padding: 2rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.error {
+  color: #f87171;
+}

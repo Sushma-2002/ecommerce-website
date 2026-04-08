@@ -1,0 +1,77 @@
+<div class="checkout-page" *ngIf="!orderSuccess">
+  <h1>Checkout</h1>
+  <p class="summary">Order total: <strong>₹{{ totalPrice | number: '1.2-2' }}</strong> ({{ itemsCount }} items)</p>
+
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()" class="checkout-form">
+    <div class="form-group">
+      <label for="customerName">Full name</label>
+      <input id="customerName" type="text" formControlName="customerName" placeholder="Your name" />
+      <span class="error" *ngIf="checkoutForm.get('customerName')?.touched && checkoutForm.get('customerName')?.errors?.['required']">
+        Name is required
+      </span>
+    </div>
+    <div class="form-group">
+      <label for="customerEmail">Email</label>
+      <input id="customerEmail" type="email" formControlName="customerEmail" placeholder="you@example.com" />
+      <span class="error" *ngIf="checkoutForm.get('customerEmail')?.touched && checkoutForm.get('customerEmail')?.errors?.['required']">
+        Email is required
+      </span>
+      <span class="error" *ngIf="checkoutForm.get('customerEmail')?.touched && checkoutForm.get('customerEmail')?.errors?.['email']">
+        Enter a valid email
+      </span>
+    </div>
+    <div class="form-group">
+      <label for="shippingAddress">Shipping address</label>
+      <textarea id="shippingAddress" formControlName="shippingAddress" rows="3" placeholder="Street, city, ZIP"></textarea>
+      <span class="error" *ngIf="checkoutForm.get('shippingAddress')?.touched && checkoutForm.get('shippingAddress')?.errors?.['required']">
+        Address is required
+      </span>
+    </div>
+
+    <div class="payment-section">
+      <h2>Payment</h2>
+      <div class="form-group">
+        <label for="paymentMethod">Payment method</label>
+        <select id="paymentMethod" formControlName="paymentMethod">
+          <option value="CREDIT_CARD">Credit Card</option>
+          <option value="DEBIT_CARD">Debit Card</option>
+          <option value="PAYPAL">PayPal</option>
+          <option value="COD">Cash on Delivery</option>
+        </select>
+      </div>
+
+      <div class="card-fields" *ngIf="showCardFields">
+        <div class="form-group">
+          <label for="cardNumber">Card number</label>
+          <input id="cardNumber" type="text" formControlName="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" />
+        </div>
+        <div class="card-row">
+          <div class="form-group">
+            <label for="cardExpiry">Expiry (MM/YY)</label>
+            <input id="cardExpiry" type="text" formControlName="cardExpiry" placeholder="MM/YY" maxlength="5" />
+          </div>
+          <div class="form-group">
+            <label for="cardCvv">CVV</label>
+            <input id="cardCvv" type="text" formControlName="cardCvv" placeholder="123" maxlength="4" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="message error" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+    <div class="actions">
+      <a routerLink="/cart" class="btn-back">Back to cart</a>
+      <button type="submit" class="btn-submit" [disabled]="loading">
+        {{ loading ? 'Placing order...' : 'Place order' }}
+      </button>
+    </div>
+  </form>
+</div>
+
+<div class="success-card" *ngIf="orderSuccess">
+  <h1>Thank you!</h1>
+  <p>Your order <strong>#{{ orderSuccess.orderId }}</strong> has been placed.</p>
+  <p>Total: <strong>₹{{ orderSuccess.total | number: '1.2-2' }}</strong></p>
+  <a routerLink="/shop" class="btn-continue">Continue shopping</a>
+</div>

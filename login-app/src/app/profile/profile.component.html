@@ -1,0 +1,60 @@
+<div class="profile-page" *ngIf="!loading && profile">
+  <h1>Your Account</h1>
+
+  <section class="profile-section">
+    <h2>Account details</h2>
+    <div class="profile-card">
+      <div class="profile-row">
+        <span class="label">Username</span>
+        <span class="value">{{ profile.username }}</span>
+      </div>
+      <div class="profile-row">
+        <span class="label">Email</span>
+        <span class="value">{{ profile.email }}</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="orders-section">
+    <h2>Your orders</h2>
+    <p class="orders-subtitle" *ngIf="orders.length">You have {{ orders.length }} order(s).</p>
+
+    <div class="empty-orders" *ngIf="!orders.length">
+      <p>You haven't placed any orders yet.</p>
+      <a routerLink="/shop" class="btn-shop">Browse Bazaar</a>
+    </div>
+
+    <div class="orders-list" *ngIf="orders.length">
+      <div class="order-card" *ngFor="let order of orders">
+        <div class="order-header">
+          <div class="order-meta">
+            <span class="order-id">Order #{{ order.id }}</span>
+            <span class="order-date">{{ formatDate(order.createdAt) }}</span>
+          </div>
+          <div class="order-total">₹{{ order.totalAmount | number: '1.2-2' }}</div>
+        </div>
+        <div class="order-details">
+          <p class="shipping" *ngIf="order.shippingAddress">
+            <strong>Shipped to:</strong> {{ order.shippingAddress }}
+          </p>
+          <p class="payment" *ngIf="order.paymentMethod">
+            <strong>Payment:</strong> {{ formatPayment(order.paymentMethod, order.cardLast4) }}
+          </p>
+        </div>
+        <ul class="order-items">
+          <li *ngFor="let item of order.items">
+            {{ item.productName }} × {{ item.quantity }} — ₹{{ (item.unitPrice * item.quantity) | number: '1.2-2' }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="loading" *ngIf="loading">
+  Loading your profile...
+</div>
+
+<div class="error" *ngIf="errorMessage && !loading">
+  {{ errorMessage }}
+</div>

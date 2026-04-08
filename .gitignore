@@ -1,0 +1,10 @@
+login-app/node_modules/
+login-app/dist/
+login-app/.angular/
+
+springboot-backend/target/
+springboot-backend/.mvn/wrapper/maven-wrapper.jar
+
+.idea/
+.vscode/
+.DS_Store

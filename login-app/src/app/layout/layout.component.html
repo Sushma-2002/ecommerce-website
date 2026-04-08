@@ -1,0 +1,17 @@
+<header class="header">
+  <a routerLink="/shop" class="logo">Bazaar</a>
+  <nav class="nav">
+    <a routerLink="/shop" routerLinkActive="active">Discover</a>
+    <a routerLink="/cart" routerLinkActive="active" class="cart-link">
+      Cart
+      <span class="badge" *ngIf="cartCount">{{ cartCount }}</span>
+    </a>
+    <a routerLink="/profile" routerLinkActive="active" *ngIf="isLoggedIn">Account</a>
+    <a routerLink="/register" class="btn-register-nav" *ngIf="!isLoggedIn">Create account</a>
+    <a routerLink="/login" class="btn-login" *ngIf="!isLoggedIn">Login</a>
+    <button type="button" class="btn-logout" (click)="logout()" *ngIf="isLoggedIn">Logout</button>
+  </nav>
+</header>
+<main class="main">
+  <router-outlet></router-outlet>
+</main>
