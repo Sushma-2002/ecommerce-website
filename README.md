@@ -1,6 +1,6 @@
-# Bazaar Full-Stack Ecommerce
+# Ecommerce Website
 
-![Bazaar Cover](https://images.unsplash.com/photo-1481437156560-3205f6a55735?w=1200&auto=format&fit=crop)
+![Ecommerce Cover](https://images.unsplash.com/photo-1481437156560-3205f6a55735?w=1200&auto=format&fit=crop)
 
 A full-stack ecommerce app built with Angular 16 and Spring Boot.
 
